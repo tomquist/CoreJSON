@@ -1,3 +1,10 @@
+[![Build Status](https://travis-ci.org/tomquist/CoreJSON.svg?branch=master)](https://travis-ci.org/tomquist/CoreJSON)
+[![codecov.io](https://codecov.io/github/tomquist/CoreJSON/coverage.svg)](https://codecov.io/github/tomquist/CoreJSON)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/CoreJSON.svg?style=flat)](https://cocoapods.org/pods/CoreJSON)
+[![Swift Package Manager Compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://github.com/tomquist/CoreJSON)
+[![Platform support](https://img.shields.io/badge/platform-ios%20%7C%20osx%20%7C%20tvos%20%7C%20watchos%20%7C%20linux-brightgreen.svg?style=flat)](https://github.com/tomquist/CoreJSON)
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/tomquist/CoreJSON/blob/master/LICENSE)
+
 # CoreJSON
 
 CoreJSON provides a simple JSON data model and on top of that a collection of utilities.
