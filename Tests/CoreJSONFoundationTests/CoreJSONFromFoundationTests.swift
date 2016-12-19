@@ -73,7 +73,12 @@ class CoreJSONFromFoundationTests: XCTestCase {
     func testJSONInt() throws {
         let jsonValue = "1"
         let json = try JSON(foundation: try data(from: jsonValue))
-        XCTAssertEqual(json, JSON.number(.int64(1)))
+        let expectation: Set<JSON> = [
+            JSON.number(.int(1)),
+            JSON.number(.int64(1)),
+            JSON.number(.uint(1)),
+            JSON.number(.uint64(1))]
+        XCTAssertTrue(expectation.contains(json))
     }
     
     func testInt() throws {
@@ -133,11 +138,9 @@ class CoreJSONFromFoundationTests: XCTestCase {
     }
     
     func testUInt64Number() throws {
-        let json = try JSON(foundation: NSNumber(value: UInt64.max))
-        #if os(Linux)
-            // On Linux objCType is not implemented in NSNumber so we can't infer number type
-            XCTAssertEqual(json, JSON.number(.double(Double(UInt64.max))))
-        #else
+        // On Linux objCType is not yet implemented in NSNumber so we can't infer number type
+        #if !os(Linux)
+            let json = try JSON(foundation: NSNumber(value: UInt64.max))
             XCTAssertEqual(json, JSON.number(.uint64(UInt64.max)))
         #endif
     }
@@ -191,11 +194,30 @@ class CoreJSONFromFoundationTests: XCTestCase {
     func testJSONIntArray() throws {
         let jsonValue = "[1,2,3]"
         let json = try JSON(foundation: try data(from: jsonValue))
-        XCTAssertEqual(json, JSON.array([
-            .number(.int64(1)),
-            .number(.int64(2)),
-            .number(.int64(3))
-        ]))
+        let expectation: Set<JSON> = [
+            JSON.array([
+                .number(.int(1)),
+                .number(.int(2)),
+                .number(.int(3))
+            ]),
+            JSON.array([
+                .number(.int64(1)),
+                .number(.int64(2)),
+                .number(.int64(3))
+            ]),
+            JSON.array([
+                .number(.uint(1)),
+                .number(.uint(2)),
+                .number(.uint(3))
+            ]),
+            JSON.array([
+                .number(.uint64(1)),
+                .number(.uint64(2)),
+                .number(.uint64(3))
+            ])
+            
+        ]
+        XCTAssertTrue(expectation.contains(json))
     }
     
     func testJSONOptionalStringArray() throws {
