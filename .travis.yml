@@ -10,6 +10,8 @@ matrix:
       env:
         - TYPE=spm
         - SWIFT_VERSION=3.0
+    - os: osx
+      env: TYPE=pod
     - os: linux
       dist: trusty
       sudo: required
