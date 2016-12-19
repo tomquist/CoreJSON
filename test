@@ -24,6 +24,16 @@ function xcode_tests {
     echo "Xcode tests passed"
 }
 
+function cocoapods_tests {
+    (
+        set -e;
+        set -x;
+        pod lib lint
+    )
+    echo
+    echo "CocoaPods tests passed"
+}
+
 function spm_tests {
     (
         set -e;
@@ -53,6 +63,7 @@ do
     case $arg in
         "spm") spm_tests;;
         "xcode") xcode_tests;;
+	"pod") cocoapods_tests;;
         "help") help;;
     esac
 done

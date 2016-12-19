@@ -1,18 +1,18 @@
-# CoreJson
+# CoreJSON
 
 CoreJSON provides a simple JSON data model and on top of that a collection of utilities.
 
 ## Modules
 CoreJSON consists of several modules:
-* Core: Provides a simple JSON data model which conforms to Equatable and Hashable
-* Convenience: Provides some convenient value accessors to extract JSON content without checking the JSON node type
-* Subscript: Allows subscripting JSON values by key (for objects) or index (for arrays)
-* Literals: Allows converting an Integer, Nil, String, Float, Boolean, Array and Dictionary literal into JSON
-* Foundation: Converts the result of (NS)JSONSerialization into CoreJSONs JSON model and vice-versa
-* Pointer: Implementation of JSON pointer ([rfc6901](https://tools.ietf.org/rfc/rfc6901.txt))
+* _Core_: Provides a simple JSON data model which conforms to Equatable and Hashable
+* _Convenience_: Provides some convenient value accessors to extract JSON content without checking the JSON node type
+* _Subscript_: Allows subscripting JSON values by key (for objects) or index (for arrays)
+* _Literals_: Allows converting an Integer, Nil, String, Float, Boolean, Array and Dictionary literal into JSON
+* _Foundation_: Converts the result of (NS)JSONSerialization into CoreJSONs JSON model and vice-versa
+* _Pointer_: Implementation of JSON pointer ([rfc6901](https://tools.ietf.org/rfc/rfc6901.txt))
 
 
-## Examples
+## Demo
 
 ### Core
 ```swift
