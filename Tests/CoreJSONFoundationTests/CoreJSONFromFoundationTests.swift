@@ -119,30 +119,17 @@ class CoreJSONFromFoundationTests: XCTestCase {
     
     func testFloatNumber() throws {
         let json = try JSON(foundation: NSNumber(value: 1 as Float))
-        #if os(Linux)
-            // On Linux objCType is not implemented in NSNumber so we can't infer number type
-            XCTAssertEqual(json, JSON.number(.double(1)))
-        #else
-            XCTAssertEqual(json, JSON.number(.float(1)))
-        #endif
+        XCTAssertEqual(json, JSON.number(.float(1)))
     }
     
     func testInt64Number() throws {
-        let json = try JSON(foundation: NSNumber(value: 1 as Int64))
-        #if os(Linux)
-            // On Linux objCType is not implemented in NSNumber so we can't infer number type
-            XCTAssertEqual(json, JSON.number(.double(1)))
-        #else
-            XCTAssertEqual(json, JSON.number(.int64(1)))
-        #endif
+        let json = try JSON(foundation: NSNumber(value: -2 as Int64))
+        XCTAssertEqual(json, JSON.number(.int64(-2)))
     }
     
     func testUInt64Number() throws {
-        // On Linux objCType is not yet implemented in NSNumber so we can't infer number type
-        #if !os(Linux)
-            let json = try JSON(foundation: NSNumber(value: UInt64.max))
-            XCTAssertEqual(json, JSON.number(.uint64(UInt64.max)))
-        #endif
+        let json = try JSON(foundation: NSNumber(value: UInt64.max))
+        XCTAssertEqual(json, JSON.number(.uint64(UInt64.max)))
     }
     
     func testJSONString() throws {
@@ -234,40 +221,3 @@ class CoreJSONFromFoundationTests: XCTestCase {
         }
     }
 }
-
-#if os(Linux)
-extension CoreJSONFromFoundationTests {
-    static var allTests : [(String, (CoreJSONFromFoundationTests) -> () throws -> Void)] {
-        return [
-            ("testBoolFalse", testBoolFalse),
-            ("testBoolTrue", testBoolTrue),
-            ("testDouble", testDouble),
-            ("testFloat", testFloat),
-            ("testFloatNumber", testFloatNumber),
-            ("testInt64", testInt64),
-            ("testInt64Number", testInt64Number),
-            ("testInt", testInt),
-            ("testJSONBoolFalse", testJSONBoolFalse),
-            ("testJSONBoolTrue", testJSONBoolTrue),
-            ("testJSONDouble", testJSONDouble),
-            ("testJSONEmptyArray", testJSONEmptyArray),
-            ("testJSONEmptyObject", testJSONEmptyObject),
-            ("testJSONInt", testJSONInt),
-            ("testJSONIntArray", testJSONIntArray),
-            ("testJSONIntExponential", testJSONIntExponential),
-            ("testJSONIntNegativeExponential", testJSONIntNegativeExponential),
-            ("testJSONNull", testJSONNull),
-            ("testJSONNullArray", testJSONNullArray),
-            ("testJSONObject", testJSONObject),
-            ("testJSONOptionalStringArray", testJSONOptionalStringArray),
-            ("testJSONString", testJSONString),
-            ("testNil", testNil),
-            ("testNonNilOptional", testNonNilOptional),
-            ("testUInt64", testUInt64),
-            ("testUInt64Number", testUInt64Number),
-            ("testUInt", testUInt),
-            ("testUnsupported", testUnsupported),
-        ]
-    }
-}
-#endif

@@ -23,6 +23,7 @@
  */
 
 import Foundation
+import CoreFoundation
 #if SWIFT_PACKAGE
     import CoreJSON
 #endif
@@ -56,10 +57,10 @@ extension JSON {
             self = .number(.float(float))
         case let double as Double:
             self = .number(.double(double))
-        case let uint as UInt:
-            self = .number(.uint(uint))
         case let uint as UInt64:
             self = .number(.uint64(uint))
+        case let uint as UInt:
+            self = .number(.uint(uint))
         case let int as Int:
             self = .number(.int(int))
         case let int as Int64:
@@ -79,21 +80,9 @@ extension JSON {
 
 extension NSNumber {
     
-    private static let trueNumber = NSNumber(value: true)
-    private static let falseNumber = NSNumber(value: false)
-    private static let trueObjCType = String(cString: NSNumber.trueNumber.objCType)
-    private static let falseObjCType = String(cString: NSNumber.falseNumber.objCType)
-    
     fileprivate var isBool:Bool {
         get {
-            #if !os(Linux)
-                let objCType = String(cString: self.objCType)
-                if (self.compare(NSNumber.trueNumber) == .orderedSame && objCType == NSNumber.trueObjCType)
-                    || (self.compare(NSNumber.falseNumber) == ComparisonResult.orderedSame && objCType == NSNumber.falseObjCType){
-                    return true
-                }
-            #endif
-            return false
+            return self === kCFBooleanTrue || self === kCFBooleanFalse
         }
     }
     
@@ -101,21 +90,19 @@ extension NSNumber {
         if isBool {
             return .bool(boolValue)
         }
-        #if !os(Linux)
-            if let objcType = String(validatingUTF8: self.objCType) {
-                switch objcType {
-                case "B", "c": return .bool(boolValue)
-                case "i", "l": return .number(.int(intValue))
-                case "I", "L": return .number(.uint(uintValue))
-                case "q": return .number(.int64(int64Value))
-                case "Q": return .number(.uint64(uint64Value))
-                case "f": return .number(.float(floatValue))
-                case "d": return .number(.double(doubleValue))
-                default: break
-                }
-            }
-        #endif
-        return .number(.double(doubleValue))
+        guard let objcType = String(validatingUTF8: self.objCType) else {
+            return .number(.double(doubleValue))
+        }
+        switch objcType {
+        case "B", "c": return .bool(boolValue)
+        case "i", "l", "s": return .number(.int(intValue))
+        case "I", "L": return .number(.uint(uintValue))
+        case "q": return .number(.int64(int64Value))
+        case "Q": return .number(.uint64(uint64Value))
+        case "f": return .number(.float(floatValue))
+        case "d": return .number(.double(doubleValue))
+        default: return .number(.double(doubleValue))
+        }
     }
 }
 

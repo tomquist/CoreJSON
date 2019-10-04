@@ -310,32 +310,3 @@ class CoreJSONConvenienceTests: XCTestCase {
     }
     
 }
-
-#if os(Linux)
-extension CoreJSONConvenienceTests {
-    static var allTests : [(String, (CoreJSONConvenienceTests) -> () throws -> Void)] {
-        return [
-            ("testArrayValue", testArrayValue),
-            ("testBoolValue", testBoolValue),
-            ("testDoubleValue", testDoubleValue),
-            ("testFloatValue", testFloatValue),
-            ("testIntValue", testIntValue),
-            ("testIsArray", testIsArray),
-            ("testIsBool", testIsBool),
-            ("testIsDouble", testIsDouble),
-            ("testIsFloat", testIsFloat),
-            ("testIsInt", testIsInt),
-            ("testIsInt64", testIsInt64),
-            ("testIsNull", testIsNull),
-            ("testIsNumber", testIsNumber),
-            ("testIsObject", testIsObject),
-            ("testIsString", testIsString),
-            ("testIsUInt", testIsUInt),
-            ("testIsUInt64", testIsUInt64),
-            ("testObjectValue", testObjectValue),
-            ("testStringValue", testStringValue),
-            ("testUIntValue", testUIntValue),
-        ]
-    }
-}
-#endif

@@ -1,17 +1,18 @@
 import XCTest
-@testable import CoreJSONTests
-@testable import CoreJSONSubscriptTests
-@testable import CoreJSONPointerTests
-@testable import CoreJSONLiteralsTests
-@testable import CoreJSONFoundationTests
-@testable import CoreJSONConvenienceTests
 
-XCTMain([
-    testCase(CoreJSONTests.allTests),
-    testCase(CoreJSONSubscriptTests.allTests),
-    testCase(CoreJSONPointerTests.allTests),
-    testCase(CoreJSONLiteralsTests.allTests),
-    testCase(CoreJSONFromFoundationTests.allTests),
-    testCase(CoreJSONToFoundationTests.allTests),
-    testCase(CoreJSONConvenienceTests.allTests),
-])
+import CoreJSONConvenienceTests
+import CoreJSONFoundationTests
+import CoreJSONLiteralsTests
+import CoreJSONPointerTests
+import CoreJSONSubscriptTests
+import CoreJSONTests
+
+var tests = [XCTestCaseEntry]()
+tests += CoreJSONConvenienceTests.__allTests()
+tests += CoreJSONFoundationTests.__allTests()
+tests += CoreJSONLiteralsTests.__allTests()
+tests += CoreJSONPointerTests.__allTests()
+tests += CoreJSONSubscriptTests.__allTests()
+tests += CoreJSONTests.__allTests()
+
+XCTMain(tests)

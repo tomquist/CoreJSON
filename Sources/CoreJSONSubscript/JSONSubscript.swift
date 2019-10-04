@@ -27,7 +27,8 @@
 #endif
 
 extension JSON {
-    
+
+    @inlinable
     public subscript(key: String) -> JSON? {
         get {
             switch self {
@@ -52,7 +53,8 @@ extension JSON {
             }
         }
     }
-    
+
+    @inlinable
     public subscript(index: Int) -> JSON? {
         get {
             switch self {

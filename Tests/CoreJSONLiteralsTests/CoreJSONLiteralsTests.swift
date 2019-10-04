@@ -66,19 +66,3 @@ class CoreJSONLiteralsTests: XCTestCase {
     }
     
 }
-
-#if os(Linux)
-extension CoreJSONLiteralsTests {
-    static var allTests : [(String, (CoreJSONLiteralsTests) -> () throws -> Void)] {
-        return [
-            ("testArrayLiteral", testArrayLiteral),
-            ("testBooleanLiteral", testBooleanLiteral),
-            ("testDictionaryLiteral", testDictionaryLiteral),
-            ("testFloatLiteral", testFloatLiteral),
-            ("testIntegerLiteral", testIntegerLiteral),
-            ("testNilLiteral", testNilLiteral),
-            ("testStringLiteral", testStringLiteral),
-        ]
-    }
-}
-#endif
