@@ -12,7 +12,7 @@ function xcode_tests {
         set -e;
         
         
-        XCB1='xcodebuild test -project CoreJSON.xcodeproj -scheme CoreJSON -destination "platform=OS X"'
+        XCB1='xcodebuild test -project CoreJSON.xcodeproj -scheme CoreJSON-Package -destination "platform=OS X"'
 
         if [[ $TRAVIS || $XCPRETTY_INSTALLED == 0 ]]; then
             eval "set -o pipefail && ${XCB1} | xcpretty" && eval "set -o pipefail && ${XCB1} | xcpretty" && eval "set -o pipefail && ${XCB1} | xcpretty"
@@ -40,7 +40,7 @@ function spm_tests {
         set -x; # print commands executed; use subshell to avoid having to print 'set +x' to disable it
         swift package clean &&
         swift build &&
-        swift test
+        swift test --enable-test-discovery
     )
     echo
     echo "SPM tests passed"
