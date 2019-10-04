@@ -210,24 +210,3 @@ class CoreJSONTests: XCTestCase {
     }
 
 }
-
-#if os(Linux)
-extension CoreJSONTests {
-    static var allTests : [(String, (CoreJSONTests) -> () throws -> Void)] {
-        return [
-            ("testEqualsArray", testEqualsArray),
-            ("testEqualsBool", testEqualsBool),
-            ("testEqualsDouble", testEqualsDouble),
-            ("testEqualsFloat", testEqualsFloat),
-            ("testEqualsInt", testEqualsInt),
-            ("testEqualsInt64", testEqualsInt64),
-            ("testEqualsNull", testEqualsNull),
-            ("testEqualsNumber", testEqualsNumber),
-            ("testEqualsObject", testEqualsObject),
-            ("testEqualsString", testEqualsString),
-            ("testEqualsUInt", testEqualsUInt),
-            ("testEqualsUInt64", testEqualsUInt64),
-        ]
-    }
-}
-#endif

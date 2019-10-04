@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CoreJSON"
-  s.version      = "1.0.0"
+  s.version      = "2.0.0"
   s.summary      = "Core JSON data model and utilities"
   s.description  = <<-DESC
     CoreJSON provides a simple JSON data model and on top of it serveral extension modules
@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/tomquist/CoreJSON.git", :tag => s.version.to_s }
   s.default_subspec = 'Core'
+  s.swift_versions = ['5.0']
 
   s.subspec 'Core' do |sp|
     sp.source_files = "Sources/CoreJSON/*.swift"

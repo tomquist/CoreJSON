@@ -121,7 +121,7 @@ class CoreJSONPointerTests: XCTestCase {
     }
     
     func testKeyOnArray() {
-        var json: JSON = [1, 2, 3]
+        let json: JSON = [1, 2, 3]
         XCTAssertEqual(json["/test" as JSONPointer], nil)
         
         var jsonCopy = json
@@ -238,35 +238,3 @@ class CoreJSONPointerTests: XCTestCase {
     }
     
 }
-
-#if os(Linux)
-extension CoreJSONPointerTests {
-    static var allTests : [(String, (CoreJSONPointerTests) -> () throws -> Void)] {
-        return [
-            ("testArrayAppend", testArrayAppend),
-            ("testArrayIndex", testArrayIndex),
-            ("testCreationOfArray", testCreationOfArray),
-            ("testCreationOfArrayWithEndIndex", testCreationOfArrayWithEndIndex),
-            ("testCreationOfObject", testCreationOfObject),
-            ("testEmptyArrayIndex", testEmptyArrayIndex),
-            ("testEmptyKey", testEmptyKey),
-            ("testEmptyKeyOnString", testEmptyKeyOnString),
-            ("testEmptyPointer", testEmptyPointer),
-            ("testEscapeOrder", testEscapeOrder),
-            ("testKeyOnArray", testKeyOnArray),
-            ("testLastPathComponent", testLastPathComponent),
-            ("testLeadingZeroArrayIndex", testLeadingZeroArrayIndex),
-            ("testLiteral", testLiteral),
-            ("testMutateNested", testMutateNested),
-            ("testNonEmptyKey", testNonEmptyKey),
-            ("testNonExistingArrayIndex", testNonExistingArrayIndex),
-            ("testPathComponents", testPathComponents),
-            ("testResetNested", testResetNested),
-            ("testResetNonExistingPath", testResetNonExistingPath),
-            ("testResetOnString", testResetOnString),
-            ("testRfcExamples", testRfcExamples),
-            ("testSetIndexOutOfBounds", testSetIndexOutOfBounds),
-        ]
-    }
-}
-#endif

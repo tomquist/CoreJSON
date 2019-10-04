@@ -35,7 +35,7 @@ public struct JSONPointer {
         var value: String
         
         var arrayIndex: Int? {
-            let chars = value.characters
+            let chars = value
             guard let firstChar = chars.first else {
                 return nil
             }

@@ -83,14 +83,3 @@ class CoreJSONSubscriptTests: XCTestCase {
     }
     
 }
-
-#if os(Linux)
-extension CoreJSONSubscriptTests {
-    static var allTests : [(String, (CoreJSONSubscriptTests) -> () throws -> Void)] {
-        return [
-            ("testIntSubscript", testIntSubscript),
-            ("testStringSubscript", testStringSubscript),
-        ]
-    }
-}
-#endif

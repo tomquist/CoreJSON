@@ -102,26 +102,3 @@ class CoreJSONToFoundationTests: XCTestCase {
     }
     
 }
-
-#if os(Linux)
-extension CoreJSONToFoundationTests {
-    static var allTests : [(String, (CoreJSONToFoundationTests) -> () throws -> Void)] {
-        return [
-            ("testArrayWithString", testArrayWithString),
-            ("testBoolFalse", testBoolFalse),
-            ("testBoolTrue", testBoolTrue),
-            ("testDouble", testDouble),
-            ("testEmptyArray", testEmptyArray),
-            ("testEmptyObject", testEmptyObject),
-            ("testFloat", testFloat),
-            ("testInt", testInt),
-            ("testInt64", testInt64),
-            ("testNull", testNull),
-            ("testObjectWithString", testObjectWithString),
-            ("testString", testString),
-            ("testUInt", testUInt),
-            ("testUInt64", testUInt64),
-        ]
-    }
-}
-#endif
