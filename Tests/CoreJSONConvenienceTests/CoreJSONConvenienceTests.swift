@@ -70,27 +70,10 @@ class CoreJSONConvenienceTests: XCTestCase {
         XCTAssertFalse(JSON.string("").isInt)
         XCTAssertFalse(JSON.bool(false).isInt)
         XCTAssertTrue(JSON.number(.int(10)).isInt)
-        XCTAssertFalse(JSON.number(.int64(10)).isInt)
         XCTAssertFalse(JSON.number(.uint(10)).isInt)
-        XCTAssertFalse(JSON.number(.uint64(10)).isInt)
-        XCTAssertFalse(JSON.number(.float(10)).isInt)
         XCTAssertFalse(JSON.number(.double(10)).isInt)
         XCTAssertFalse(JSON.array([]).isInt)
         XCTAssertFalse(JSON.object([:]).isInt)
-    }
-    
-    func testIsInt64() {
-        XCTAssertFalse(JSON.null.isInt64)
-        XCTAssertFalse(JSON.string("").isInt64)
-        XCTAssertFalse(JSON.bool(false).isInt64)
-        XCTAssertFalse(JSON.number(.int(10)).isInt64)
-        XCTAssertTrue(JSON.number(.int64(10)).isInt64)
-        XCTAssertFalse(JSON.number(.uint(10)).isInt64)
-        XCTAssertFalse(JSON.number(.uint64(10)).isInt64)
-        XCTAssertFalse(JSON.number(.float(10)).isInt64)
-        XCTAssertFalse(JSON.number(.double(10)).isInt64)
-        XCTAssertFalse(JSON.array([]).isInt64)
-        XCTAssertFalse(JSON.object([:]).isInt64)
     }
     
     func testIsUInt() {
@@ -98,41 +81,10 @@ class CoreJSONConvenienceTests: XCTestCase {
         XCTAssertFalse(JSON.string("").isUInt)
         XCTAssertFalse(JSON.bool(false).isUInt)
         XCTAssertFalse(JSON.number(.int(10)).isUInt)
-        XCTAssertFalse(JSON.number(.int64(10)).isUInt)
         XCTAssertTrue(JSON.number(.uint(10)).isUInt)
-        XCTAssertFalse(JSON.number(.uint64(10)).isUInt)
-        XCTAssertFalse(JSON.number(.float(10)).isUInt)
         XCTAssertFalse(JSON.number(.double(10)).isUInt)
         XCTAssertFalse(JSON.array([]).isUInt)
         XCTAssertFalse(JSON.object([:]).isUInt)
-    }
-    
-    func testIsUInt64() {
-        XCTAssertFalse(JSON.null.isUInt64)
-        XCTAssertFalse(JSON.string("").isUInt64)
-        XCTAssertFalse(JSON.bool(false).isUInt64)
-        XCTAssertFalse(JSON.number(.int(10)).isUInt64)
-        XCTAssertFalse(JSON.number(.int64(10)).isUInt64)
-        XCTAssertFalse(JSON.number(.uint(10)).isUInt64)
-        XCTAssertTrue(JSON.number(.uint64(10)).isUInt64)
-        XCTAssertFalse(JSON.number(.float(10)).isUInt64)
-        XCTAssertFalse(JSON.number(.double(10)).isUInt64)
-        XCTAssertFalse(JSON.array([]).isUInt64)
-        XCTAssertFalse(JSON.object([:]).isUInt64)
-    }
-    
-    func testIsFloat() {
-        XCTAssertFalse(JSON.null.isFloat)
-        XCTAssertFalse(JSON.string("").isFloat)
-        XCTAssertFalse(JSON.bool(false).isFloat)
-        XCTAssertFalse(JSON.number(.int(10)).isFloat)
-        XCTAssertFalse(JSON.number(.int64(10)).isFloat)
-        XCTAssertFalse(JSON.number(.uint(10)).isFloat)
-        XCTAssertFalse(JSON.number(.uint64(10)).isFloat)
-        XCTAssertTrue(JSON.number(.float(10)).isFloat)
-        XCTAssertFalse(JSON.number(.double(10)).isFloat)
-        XCTAssertFalse(JSON.array([]).isFloat)
-        XCTAssertFalse(JSON.object([:]).isFloat)
     }
     
     func testIsDouble() {
@@ -140,10 +92,7 @@ class CoreJSONConvenienceTests: XCTestCase {
         XCTAssertFalse(JSON.string("").isDouble)
         XCTAssertFalse(JSON.bool(false).isDouble)
         XCTAssertFalse(JSON.number(.int(10)).isDouble)
-        XCTAssertFalse(JSON.number(.int64(10)).isDouble)
         XCTAssertFalse(JSON.number(.uint(10)).isDouble)
-        XCTAssertFalse(JSON.number(.uint64(10)).isDouble)
-        XCTAssertFalse(JSON.number(.float(10)).isUInt)
         XCTAssertTrue(JSON.number(.double(10)).isDouble)
         XCTAssertFalse(JSON.array([]).isDouble)
         XCTAssertFalse(JSON.object([:]).isDouble)
@@ -206,7 +155,6 @@ class CoreJSONConvenienceTests: XCTestCase {
         XCTAssertNil(JSON.bool(false).intValue)
         XCTAssertEqual(JSON.number(.int(10)).intValue, 10)
         XCTAssertEqual(JSON.number(.uint(10)).intValue, 10)
-        XCTAssertEqual(JSON.number(.float(10)).intValue, 10)
         XCTAssertEqual(JSON.number(.double(10)).intValue, 10)
         XCTAssertNil(JSON.array([]).intValue)
         XCTAssertNil(JSON.object([:]).intValue)
@@ -225,7 +173,6 @@ class CoreJSONConvenienceTests: XCTestCase {
         XCTAssertNil(JSON.bool(false).uintValue)
         XCTAssertEqual(JSON.number(.int(10)).uintValue, 10)
         XCTAssertEqual(JSON.number(.uint(10)).uintValue, 10)
-        XCTAssertEqual(JSON.number(.float(10)).uintValue, 10)
         XCTAssertEqual(JSON.number(.double(10)).uintValue, 10)
         XCTAssertNil(JSON.array([]).uintValue)
         XCTAssertNil(JSON.object([:]).uintValue)
@@ -237,34 +184,13 @@ class CoreJSONConvenienceTests: XCTestCase {
         val.uintValue = nil
         XCTAssertTrue(val.isNull)
     }
-    
-    func testFloatValue() {
-        XCTAssertNil(JSON.null.floatValue)
-        XCTAssertNil(JSON.string("text").floatValue)
-        XCTAssertNil(JSON.bool(false).floatValue)
-        XCTAssertEqual(JSON.number(.int(10)).floatValue, 10)
-        XCTAssertEqual(JSON.number(.uint(10)).floatValue, 10)
-        XCTAssertEqual(JSON.number(.float(10)).floatValue, 10)
-        XCTAssertEqual(JSON.number(.double(10)).floatValue, 10)
-        XCTAssertNil(JSON.array([]).floatValue)
-        XCTAssertNil(JSON.object([:]).floatValue)
-        
-        var val = JSON.null
-        val.floatValue = 10
-        XCTAssertTrue(val.isFloat)
-        XCTAssertEqual(val.floatValue, 10)
-        val.floatValue = nil
-        XCTAssertTrue(val.isNull)
-    }
-    
-    
+
     func testDoubleValue() {
         XCTAssertNil(JSON.null.doubleValue)
         XCTAssertNil(JSON.string("text").doubleValue)
         XCTAssertNil(JSON.bool(false).doubleValue)
         XCTAssertEqual(JSON.number(.int(10)).doubleValue, 10)
         XCTAssertEqual(JSON.number(.uint(10)).doubleValue, 10)
-        XCTAssertEqual(JSON.number(.float(10)).doubleValue, 10)
         XCTAssertEqual(JSON.number(.double(10)).doubleValue, 10)
         XCTAssertNil(JSON.array([]).doubleValue)
         XCTAssertNil(JSON.object([:]).doubleValue)

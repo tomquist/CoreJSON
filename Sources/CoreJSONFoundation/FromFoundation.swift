@@ -53,18 +53,12 @@ extension JSON {
             self = .bool(number.asBool!)
         case let number as NSNumber where value is Double: // Only on ios/osx we can bridge numbers to double and NSNumber
             self = number.json
-        case let float as Float:
-            self = .number(.float(float))
         case let double as Double:
             self = .number(.double(double))
-        case let uint as UInt64:
-            self = .number(.uint64(uint))
         case let uint as UInt:
             self = .number(.uint(uint))
         case let int as Int:
             self = .number(.int(int))
-        case let int as Int64:
-            self = .number(.int64(int))
         case let number as NSNumber: // This case will only be reached on linux
             self = number.json
         case let object as [String: Any]:
@@ -95,12 +89,9 @@ extension NSNumber {
         }
         switch objcType {
         case "B", "c": return .bool(boolValue)
-        case "i", "l", "s": return .number(.int(intValue))
-        case "I", "L": return .number(.uint(uintValue))
-        case "q": return .number(.int64(int64Value))
-        case "Q": return .number(.uint64(uint64Value))
-        case "f": return .number(.float(floatValue))
-        case "d": return .number(.double(doubleValue))
+        case "i", "l", "s", "q": return .number(.int(intValue))
+        case "I", "L", "Q": return .number(.uint(uintValue))
+        case "d", "f": return .number(.double(doubleValue))
         default: return .number(.double(doubleValue))
         }
     }

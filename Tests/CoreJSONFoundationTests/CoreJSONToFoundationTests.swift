@@ -59,21 +59,6 @@ class CoreJSONToFoundationTests: XCTestCase {
         XCTAssertEqual(json.toFoundation() as? UInt, 10)
     }
     
-    func testInt64() {
-        let json = JSON.number(.int64(10))
-        XCTAssertEqual(json.toFoundation() as? Int64, 10)
-    }
-    
-    func testUInt64() {
-        let json = JSON.number(.uint64(10))
-        XCTAssertEqual(json.toFoundation() as? UInt64, 10)
-    }
-    
-    func testFloat() {
-        let json = JSON.number(.float(10))
-        XCTAssertEqual(json.toFoundation() as? Float, 10)
-    }
-    
     func testDouble() {
         let json = JSON.number(.double(10))
         XCTAssertEqual(json.toFoundation() as? Double, 10)
