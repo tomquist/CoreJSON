@@ -47,11 +47,8 @@ extension JSONNumber {
     public func toFoundation() -> Any {
         switch self {
         case let .double(double): return double
-        case let .float(float): return float
         case let .int(int): return int
-        case let .int64(int): return int
         case let .uint(uint): return uint
-        case let .uint64(uint): return uint
         }
     }
 }

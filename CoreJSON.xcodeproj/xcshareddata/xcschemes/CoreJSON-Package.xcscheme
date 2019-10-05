@@ -6,7 +6,7 @@
         <BuildableReference
           BuildableIdentifier = "primary"
           BuildableName = "'lib$(TARGET_NAME)'"
-          BlueprintName = "CoreJSONPointer"
+          BlueprintName = "CoreJSONFoundation"
           ReferencedContainer = "container:CoreJSON.xcodeproj">
         </BuildableReference>
       </BuildActionEntry>
@@ -14,23 +14,7 @@
         <BuildableReference
           BuildableIdentifier = "primary"
           BuildableName = "'lib$(TARGET_NAME)'"
-          BlueprintName = "CoreJSONLiterals"
-          ReferencedContainer = "container:CoreJSON.xcodeproj">
-        </BuildableReference>
-      </BuildActionEntry>
-      <BuildActionEntry buildForTesting = "YES" buildForRunning = "YES" buildForProfiling = "YES" buildForArchiving = "YES" buildForAnalyzing = "YES">
-        <BuildableReference
-          BuildableIdentifier = "primary"
-          BuildableName = "'lib$(TARGET_NAME)'"
-          BlueprintName = "CoreJSONSubscript"
-          ReferencedContainer = "container:CoreJSON.xcodeproj">
-        </BuildableReference>
-      </BuildActionEntry>
-      <BuildActionEntry buildForTesting = "YES" buildForRunning = "YES" buildForProfiling = "YES" buildForArchiving = "YES" buildForAnalyzing = "YES">
-        <BuildableReference
-          BuildableIdentifier = "primary"
-          BuildableName = "'lib$(TARGET_NAME)'"
-          BlueprintName = "CoreJSONConvenience"
+          BlueprintName = "CoreJSONCodable"
           ReferencedContainer = "container:CoreJSON.xcodeproj">
         </BuildableReference>
       </BuildActionEntry>
@@ -46,7 +30,31 @@
         <BuildableReference
           BuildableIdentifier = "primary"
           BuildableName = "'lib$(TARGET_NAME)'"
-          BlueprintName = "CoreJSONFoundation"
+          BlueprintName = "CoreJSONPointer"
+          ReferencedContainer = "container:CoreJSON.xcodeproj">
+        </BuildableReference>
+      </BuildActionEntry>
+      <BuildActionEntry buildForTesting = "YES" buildForRunning = "YES" buildForProfiling = "YES" buildForArchiving = "YES" buildForAnalyzing = "YES">
+        <BuildableReference
+          BuildableIdentifier = "primary"
+          BuildableName = "'lib$(TARGET_NAME)'"
+          BlueprintName = "CoreJSONSubscript"
+          ReferencedContainer = "container:CoreJSON.xcodeproj">
+        </BuildableReference>
+      </BuildActionEntry>
+      <BuildActionEntry buildForTesting = "YES" buildForRunning = "YES" buildForProfiling = "YES" buildForArchiving = "YES" buildForAnalyzing = "YES">
+        <BuildableReference
+          BuildableIdentifier = "primary"
+          BuildableName = "'lib$(TARGET_NAME)'"
+          BlueprintName = "CoreJSONLiterals"
+          ReferencedContainer = "container:CoreJSON.xcodeproj">
+        </BuildableReference>
+      </BuildActionEntry>
+      <BuildActionEntry buildForTesting = "YES" buildForRunning = "YES" buildForProfiling = "YES" buildForArchiving = "YES" buildForAnalyzing = "YES">
+        <BuildableReference
+          BuildableIdentifier = "primary"
+          BuildableName = "'lib$(TARGET_NAME)'"
+          BlueprintName = "CoreJSONConvenience"
           ReferencedContainer = "container:CoreJSON.xcodeproj">
         </BuildableReference>
       </BuildActionEntry>
@@ -64,16 +72,7 @@
           <BuildableReference
             BuildableIdentifier = "primary"
             BuildableName = "'$(TARGET_NAME)'"
-            BlueprintName = "CoreJSONSubscriptTests"
-            ReferencedContainer = "container:CoreJSON.xcodeproj">
-          </BuildableReference>
-        </TestableReference>
-        <TestableReference
-          skipped = "NO">
-          <BuildableReference
-            BuildableIdentifier = "primary"
-            BuildableName = "'$(TARGET_NAME)'"
-            BlueprintName = "CoreJSONConvenienceTests"
+            BlueprintName = "CoreJSONCodableTests"
             ReferencedContainer = "container:CoreJSON.xcodeproj">
           </BuildableReference>
         </TestableReference>
@@ -91,6 +90,24 @@
           <BuildableReference
             BuildableIdentifier = "primary"
             BuildableName = "'$(TARGET_NAME)'"
+            BlueprintName = "CoreJSONTests"
+            ReferencedContainer = "container:CoreJSON.xcodeproj">
+          </BuildableReference>
+        </TestableReference>
+        <TestableReference
+          skipped = "NO">
+          <BuildableReference
+            BuildableIdentifier = "primary"
+            BuildableName = "'$(TARGET_NAME)'"
+            BlueprintName = "CoreJSONSubscriptTests"
+            ReferencedContainer = "container:CoreJSON.xcodeproj">
+          </BuildableReference>
+        </TestableReference>
+        <TestableReference
+          skipped = "NO">
+          <BuildableReference
+            BuildableIdentifier = "primary"
+            BuildableName = "'$(TARGET_NAME)'"
             BlueprintName = "CoreJSONLiteralsTests"
             ReferencedContainer = "container:CoreJSON.xcodeproj">
           </BuildableReference>
@@ -100,7 +117,7 @@
           <BuildableReference
             BuildableIdentifier = "primary"
             BuildableName = "'$(TARGET_NAME)'"
-            BlueprintName = "CoreJSONPointerTests"
+            BlueprintName = "CoreJSONConvenienceTests"
             ReferencedContainer = "container:CoreJSON.xcodeproj">
           </BuildableReference>
         </TestableReference>
@@ -109,7 +126,7 @@
           <BuildableReference
             BuildableIdentifier = "primary"
             BuildableName = "'$(TARGET_NAME)'"
-            BlueprintName = "CoreJSONTests"
+            BlueprintName = "CoreJSONPointerTests"
             ReferencedContainer = "container:CoreJSON.xcodeproj">
           </BuildableReference>
         </TestableReference>

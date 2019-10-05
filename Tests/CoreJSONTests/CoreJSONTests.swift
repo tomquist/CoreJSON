@@ -91,61 +91,22 @@ class CoreJSONTests: XCTestCase {
     func testEqualsInt() {
         XCTAssertEqual(JSONNumber.int(10), .int(10))
         XCTAssertNotEqual(JSONNumber.int(10), .int(11))
-        XCTAssertNotEqual(JSONNumber.int(10), .int64(10))
         XCTAssertNotEqual(JSONNumber.int(10), .uint(10))
-        XCTAssertNotEqual(JSONNumber.int(10), .uint64(10))
-        XCTAssertNotEqual(JSONNumber.int(10), .float(10))
         XCTAssertNotEqual(JSONNumber.int(10), .double(10))
-    }
-    
-    func testEqualsInt64() {
-        XCTAssertEqual(JSONNumber.int64(10), .int64(10))
-        XCTAssertNotEqual(JSONNumber.int64(10), .int64(11))
-        XCTAssertNotEqual(JSONNumber.int64(10), .int(10))
-        XCTAssertNotEqual(JSONNumber.int64(10), .uint(10))
-        XCTAssertNotEqual(JSONNumber.int64(10), .uint64(10))
-        XCTAssertNotEqual(JSONNumber.int64(10), .float(10))
-        XCTAssertNotEqual(JSONNumber.int64(10), .double(10))
     }
     
     func testEqualsUInt() {
         XCTAssertEqual(JSONNumber.uint(10), .uint(10))
         XCTAssertNotEqual(JSONNumber.uint(10), .uint(11))
         XCTAssertNotEqual(JSONNumber.uint(10), .int(10))
-        XCTAssertNotEqual(JSONNumber.uint(10), .int64(10))
-        XCTAssertNotEqual(JSONNumber.uint(10), .uint64(10))
-        XCTAssertNotEqual(JSONNumber.uint(10), .float(10))
         XCTAssertNotEqual(JSONNumber.uint(10), .double(10))
     }
-    
-    func testEqualsUInt64() {
-        XCTAssertEqual(JSONNumber.uint64(10), .uint64(10))
-        XCTAssertNotEqual(JSONNumber.uint64(10), .uint64(11))
-        XCTAssertNotEqual(JSONNumber.uint64(10), .int(10))
-        XCTAssertNotEqual(JSONNumber.uint64(10), .int64(10))
-        XCTAssertNotEqual(JSONNumber.uint64(10), .uint(10))
-        XCTAssertNotEqual(JSONNumber.uint64(10), .float(10))
-        XCTAssertNotEqual(JSONNumber.uint64(10), .double(10))
-    }
-    
-    func testEqualsFloat() {
-        XCTAssertEqual(JSONNumber.float(10), .float(10))
-        XCTAssertNotEqual(JSONNumber.float(10), .float(11))
-        XCTAssertNotEqual(JSONNumber.float(10), .int(10))
-        XCTAssertNotEqual(JSONNumber.float(10), .int64(10))
-        XCTAssertNotEqual(JSONNumber.float(10), .uint(10))
-        XCTAssertNotEqual(JSONNumber.float(10), .uint64(10))
-        XCTAssertNotEqual(JSONNumber.float(10), .double(10))
-    }
-    
+
     func testEqualsDouble() {
         XCTAssertEqual(JSONNumber.double(10), .double(10))
         XCTAssertNotEqual(JSONNumber.double(10), .double(11))
         XCTAssertNotEqual(JSONNumber.double(10), .int(10))
-        XCTAssertNotEqual(JSONNumber.double(10), .int64(10))
         XCTAssertNotEqual(JSONNumber.double(10), .uint(10))
-        XCTAssertNotEqual(JSONNumber.double(10), .uint64(10))
-        XCTAssertNotEqual(JSONNumber.double(10), .float(10))
     }
     
     func testHashNull() {
@@ -187,21 +148,6 @@ class CoreJSONTests: XCTestCase {
     func testHashUInt() {
         XCTAssertEqual(JSONNumber.uint(10).hashValue, JSONNumber.uint(10).hashValue)
         XCTAssertNotEqual(JSONNumber.uint(10).hashValue, JSONNumber.uint(11).hashValue)
-    }
-
-    func testHashUInt64() {
-        XCTAssertEqual(JSONNumber.uint64(10).hashValue, JSONNumber.uint64(10).hashValue)
-        XCTAssertNotEqual(JSONNumber.uint64(10).hashValue, JSONNumber.uint64(11).hashValue)
-    }
-    
-    func testHashInt64() {
-        XCTAssertEqual(JSONNumber.int64(10).hashValue, JSONNumber.int64(10).hashValue)
-        XCTAssertNotEqual(JSONNumber.int64(10).hashValue, JSONNumber.int64(11).hashValue)
-    }
-    
-    func testHashFloat() {
-        XCTAssertEqual(JSONNumber.float(10).hashValue, JSONNumber.float(10).hashValue)
-        XCTAssertNotEqual(JSONNumber.float(10).hashValue, JSONNumber.float(11).hashValue)
     }
     
     func testHashDouble() {

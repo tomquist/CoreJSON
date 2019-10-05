@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CoreJSON"
-  s.version      = "2.0.0"
+  s.version      = "2.1.0"
   s.summary      = "Core JSON data model and utilities"
   s.description  = <<-DESC
     CoreJSON provides a simple JSON data model and on top of it serveral extension modules

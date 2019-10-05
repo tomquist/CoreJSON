@@ -33,9 +33,6 @@ public enum JSON: Hashable, Equatable {
 
 public enum JSONNumber: Hashable, Equatable {
     case int(Int)
-    case int64(Int64)
     case uint(UInt)
-    case uint64(UInt64)
-    case float(Float)
     case double(Double)
 }

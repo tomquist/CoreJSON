@@ -11,7 +11,8 @@ let package = Package(
             "CoreJSONFoundation",
             "CoreJSONLiterals",
             "CoreJSONSubscript",
-            "CoreJSONPointer"
+            "CoreJSONPointer",
+            "CoreJSONCodable"
         ])
     ],
     dependencies: [],
@@ -28,5 +29,7 @@ let package = Package(
         .testTarget(name: "CoreJSONSubscriptTests", dependencies: ["CoreJSON", "CoreJSONSubscript", "CoreJSONConvenience", "CoreJSONLiterals"]),
         .target(name: "CoreJSONPointer", dependencies: ["CoreJSON"]),
         .testTarget(name: "CoreJSONPointerTests", dependencies: ["CoreJSON", "CoreJSONPointer"]),
+        .target(name: "CoreJSONCodable", dependencies: ["CoreJSON"]),
+        .testTarget(name: "CoreJSONCodableTests", dependencies: ["CoreJSON", "CoreJSONCodable"]),
     ]
 )

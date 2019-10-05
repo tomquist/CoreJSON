@@ -53,35 +53,14 @@ extension JSON {
         default: return false
         }
     }
-    
-    public var isInt64: Bool {
-        switch self {
-        case .number(.int64): return true
-        default: return false
-        }
-    }
-    
+
     public var isUInt: Bool {
         switch self {
         case .number(.uint): return true
         default: return false
         }
     }
-    
-    public var isUInt64: Bool {
-        switch self {
-        case .number(.uint64): return true
-        default: return false
-        }
-    }
-    
-    public var isFloat: Bool {
-        switch self {
-        case .number(.float): return true
-        default: return false
-        }
-    }
-    
+
     public var isDouble: Bool {
         switch self {
         case .number(.double): return true
@@ -139,8 +118,6 @@ extension JSON {
                 return intValue
             case let .number(.uint(uIntValue)):
                 return Int(uIntValue)
-            case let .number(.float(floatValue)):
-                return Int(floatValue)
             case let .number(.double(doubleValue)):
                 return Int(doubleValue)
             default:
@@ -163,8 +140,6 @@ extension JSON {
                 return UInt(intValue)
             case let .number(.uint(uIntValue)):
                 return uIntValue
-            case let .number(.float(floatValue)):
-                return UInt(floatValue)
             case let .number(.double(doubleValue)):
                 return UInt(doubleValue)
             default:
@@ -179,31 +154,7 @@ extension JSON {
             }
         }
     }
-    
-    public var floatValue: Float? {
-        get {
-            switch self {
-            case let .number(.int(intValue)):
-                return Float(intValue)
-            case let .number(.uint(uIntValue)):
-                return Float(uIntValue)
-            case let .number(.float(floatValue)):
-                return floatValue
-            case let .number(.double(doubleValue)):
-                return Float(doubleValue)
-            default:
-                return nil
-            }
-        }
-        set {
-            if let newValue = newValue {
-                self = .number(.float(newValue))
-            } else {
-                self = .null
-            }
-        }
-    }
-    
+
     public var doubleValue: Double? {
         get {
             switch self {
@@ -211,8 +162,6 @@ extension JSON {
                 return Double(intValue)
             case let .number(.uint(uIntValue)):
                 return Double(uIntValue)
-            case let .number(.float(floatValue)):
-                return Double(floatValue)
             case let .number(.double(doubleValue)):
                 return doubleValue
             default:
